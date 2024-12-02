@@ -94,6 +94,40 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    desktop?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -103,9 +137,132 @@ export interface Page {
   id: string;
   pageTitle: string;
   slug: string;
+  layout?:
+    | (HeroBlock | CalltoActionBlock | FaqBlock | FeaturesBlock | GridCardsBlock | QuoteBlock | LogosBlock)[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  heroHeading?: string | null;
+  heroText?: string | null;
+  heroImage?: (string | null) | Media;
+  heroButtons?: Buttons;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Buttons".
+ */
+export interface Buttons {
+  primaryLabel?: string | null;
+  primaryLink?: string | null;
+  secondaryLabel?: string | null;
+  secondaryLink?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CalltoActionBlock".
+ */
+export interface CalltoActionBlock {
+  ctaHeading?: string | null;
+  ctaText?: string | null;
+  ctaButtons?: Buttons;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock".
+ */
+export interface FaqBlock {
+  faqHeading?: string | null;
+  faqText?: string | null;
+  faqs?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeaturesBlock".
+ */
+export interface FeaturesBlock {
+  featuresHeading?: string | null;
+  featuresText?: string | null;
+  features?:
+    | {
+        featureIcon?: (string | null) | Media;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Features';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridCardsBlock".
+ */
+export interface GridCardsBlock {
+  gridCardsHeading?: string | null;
+  gridCardsText?: string | null;
+  gridcards?:
+    | {
+        image?: (string | null) | Media;
+        title?: string | null;
+        link?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'GridCards';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "QuoteBlock".
+ */
+export interface QuoteBlock {
+  quoteHeading?: string | null;
+  quoteText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Quote';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogosBlock".
+ */
+export interface LogosBlock {
+  logosHeading?: string | null;
+  logosText?: string | null;
+  logos?:
+    | {
+        logo?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Logos';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -200,6 +357,50 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        tablet?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        desktop?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -208,6 +409,113 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   pageTitle?: T;
   slug?: T;
+  layout?:
+    | T
+    | {
+        Hero?:
+          | T
+          | {
+              heroHeading?: T;
+              heroText?: T;
+              heroImage?: T;
+              heroButtons?:
+                | T
+                | {
+                    primaryLabel?: T;
+                    primaryLink?: T;
+                    secondaryLabel?: T;
+                    secondaryLink?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        Cta?:
+          | T
+          | {
+              ctaHeading?: T;
+              ctaText?: T;
+              ctaButtons?:
+                | T
+                | {
+                    primaryLabel?: T;
+                    primaryLink?: T;
+                    secondaryLabel?: T;
+                    secondaryLink?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        Faq?:
+          | T
+          | {
+              faqHeading?: T;
+              faqText?: T;
+              faqs?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        Features?:
+          | T
+          | {
+              featuresHeading?: T;
+              featuresText?: T;
+              features?:
+                | T
+                | {
+                    featureIcon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        GridCards?:
+          | T
+          | {
+              gridCardsHeading?: T;
+              gridCardsText?: T;
+              gridcards?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    link?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        Quote?:
+          | T
+          | {
+              quoteHeading?: T;
+              quoteText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Logos?:
+          | T
+          | {
+              logosHeading?: T;
+              logosText?: T;
+              logos?:
+                | T
+                | {
+                    logo?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

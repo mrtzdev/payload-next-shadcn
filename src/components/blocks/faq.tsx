@@ -3,9 +3,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion'
 
-import { FaqBlock } from "@/payload-types";
+import { FaqBlock } from '@/payload-types'
 
 /*const faqstest = [
   {
@@ -31,13 +31,13 @@ import { FaqBlock } from "@/payload-types";
 ]; */
 
 export default function Faq(props: FaqBlock) {
-  const { faqHeader, faqText, faqs } = props;
+  const { faqHeading, faqText, faqs } = props
   return (
     <>
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-screen-md">
           <h3 className="mb-10 text-pretty text-2xl font-bold lg:text-4xl text-center">
-            {faqHeader}
+            {faqHeading}
           </h3>
           <p className="mb-10 text-pretty"> {faqText}</p>
           {faqs?.map((faq, index) => (
@@ -55,5 +55,5 @@ export default function Faq(props: FaqBlock) {
         </div>
       </section>
     </>
-  );
+  )
 }
