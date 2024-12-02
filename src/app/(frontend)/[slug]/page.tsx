@@ -37,7 +37,6 @@ export default async function Page({ params }: Props) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = (await params).slug
-
   const page = await fetchPage(slug)
 
   if (!page) {

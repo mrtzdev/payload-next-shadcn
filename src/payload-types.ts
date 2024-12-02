@@ -30,8 +30,14 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+  };
+  globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -551,6 +557,168 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  logo?: (string | null) | Media;
+  navItems?:
+    | {
+        label?: string | null;
+        link?: {
+          relationTo: 'pages';
+          value: string | Page;
+        } | null;
+        menu?: Submenu[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  primaryButtonLabel?: string | null;
+  primaryButtonLink?: string | null;
+  secondaryButtonLabel?: string | null;
+  secondaryButtonLink?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Submenu".
+ */
+export interface Submenu {
+  submenu?:
+    | {
+        label?: string | null;
+        link?: {
+          relationTo: 'pages';
+          value: string | Page;
+        } | null;
+        subenuIcon?: (string | null) | Media;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'submenublock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  navItemsFooter?:
+    | {
+        label?: string | null;
+        link?: {
+          relationTo: 'pages';
+          value: string | Page;
+        } | null;
+        menu?: SubmenuFooter[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  logo?: (string | null) | Media;
+  copyrightNotice?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SubmenuFooter".
+ */
+export interface SubmenuFooter {
+  submenufooter?:
+    | {
+        label?: string | null;
+        link?: {
+          relationTo: 'pages';
+          value: string | Page;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'submenublockfooter';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  logo?: T;
+  navItems?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        menu?:
+          | T
+          | {
+              submenublock?:
+                | T
+                | {
+                    submenu?:
+                      | T
+                      | {
+                          label?: T;
+                          link?: T;
+                          subenuIcon?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        id?: T;
+      };
+  primaryButtonLabel?: T;
+  primaryButtonLink?: T;
+  secondaryButtonLabel?: T;
+  secondaryButtonLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  navItemsFooter?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        menu?:
+          | T
+          | {
+              submenublockfooter?:
+                | T
+                | {
+                    submenufooter?:
+                      | T
+                      | {
+                          label?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        id?: T;
+      };
+  logo?: T;
+  copyrightNotice?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

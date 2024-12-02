@@ -1,36 +1,36 @@
-import { fetchPage } from "@/lib/payload/fetchPage";
-import { notFound } from "next/navigation";
-import { PagePreview } from "./page.client";
+import { fetchPage } from '@/lib/payload/fetchPage'
+import { notFound } from 'next/navigation'
+import { PagePreview } from './page.client'
 
 export default async function Page({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams: { secret: string };
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ secret: string }>
 }) {
-  const slug = params.slug;
-  console.log(searchParams);
-  const { secret } = searchParams;
-  let page;
+  const slug = (await params).slug
+
+  const { secret } = await searchParams
+  let page
 
   try {
-    page = await fetchPage(slug, true);
+    page = await fetchPage(slug, true)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 
   if (!page) {
-    return notFound();
+    return notFound()
   }
 
-  if (`${process.env.PREVIEW_SECRET}` !== secret) {
-    return notFound();
+  if (`${process.env.NEXT_PREVIEW_SECRET}` !== secret) {
+    return notFound()
   }
 
   return (
     <div>
       <PagePreview page={page} />
     </div>
-  );
+  )
 }
