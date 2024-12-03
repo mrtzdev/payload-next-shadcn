@@ -340,5 +340,3 @@ export const Pages: CollectionConfig = {
     afterChange: [revalidatePage],
   },
 }
-
-//// Blocks

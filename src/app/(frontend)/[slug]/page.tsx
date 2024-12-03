@@ -2,6 +2,7 @@ import { fetchPage } from '@/lib/payload/fetchPage'
 import { notFound } from 'next/navigation'
 import Blocks from '@/components/blocks/blocks'
 import type { Metadata } from 'next'
+import { permanentRedirect } from 'next/navigation'
 
 /// todo improve seo: https://payloadcms.com/docs/plugins/seo
 
@@ -15,6 +16,10 @@ type Props = {
 export default async function Page({ params }: Props) {
   const slug = (await params).slug
   let page
+
+  if (slug === 'home') {
+    return notFound()
+  }
 
   try {
     page = await fetchPage(slug)

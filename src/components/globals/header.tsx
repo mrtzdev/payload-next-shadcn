@@ -93,7 +93,11 @@ export default async function HeaderPage() {
                                   }),
                                   'font-semibold',
                                 )}
-                                href={`/pages/${navMenuItem.link?.value?.slug}`}
+                                href={
+                                  navMenuItem.link?.value?.slug !== 'home'
+                                    ? `/${navMenuItem.link?.value?.slug} `
+                                    : '/'
+                                }
                               >
                                 {navMenuItem.label}
                               </Link>
@@ -118,7 +122,7 @@ export default async function HeaderPage() {
                                             className={cn(
                                               'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                             )}
-                                            href={`/pages/${submenuItem?.link?.value.slug}`}
+                                            href={`/${submenuItem?.link?.value.slug}`}
                                           >
                                             {typeof submenuItem?.subenuIcon === 'object' && (
                                               <>
@@ -200,7 +204,7 @@ export default async function HeaderPage() {
                   <SheetHeader>
                     <SheetTitle>
                       <div className="flex items-center gap-2">
-                        <span className="invisible text-xl font-bold">Shadcn Blocks</span>
+                        <span className="invisible text-xl font-bold">Shadcn</span>
                       </div>
                     </SheetTitle>
                   </SheetHeader>
@@ -213,7 +217,11 @@ export default async function HeaderPage() {
                               <SheetClose asChild>
                                 <Link
                                   className="font-semibold"
-                                  href={`/pages/${navMenuItem.link?.value?.slug}`}
+                                  href={
+                                    navMenuItem.link?.value?.slug !== 'home'
+                                      ? `/${navMenuItem.link?.value?.slug} `
+                                      : '/'
+                                  }
                                 >
                                   {navMenuItem.label}
                                 </Link>
