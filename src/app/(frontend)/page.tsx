@@ -4,7 +4,6 @@ import Blocks from '@/components/blocks/blocks'
 import type { Metadata } from 'next'
 
 /// todo improve seo: https://payloadcms.com/docs/plugins/seo
-/// todo move this up and add extra home page ...
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -13,7 +12,6 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const slug = 'home'
-
   let page
 
   try {
@@ -27,7 +25,6 @@ export default async function Page({ params }: Props) {
   }
 
   const { layout } = page
-  console.log(page, 'test')
 
   return (
     <div>

@@ -1,4 +1,6 @@
-export const revalidatePage = async ({ doc, req }) => {
+import type { CollectionAfterChangeHook } from 'payload'
+
+export const revalidatePage: CollectionAfterChangeHook = async ({ doc, req }) => {
   if (doc._status === 'draft') {
     try {
       const res = await fetch(
