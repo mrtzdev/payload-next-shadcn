@@ -20,6 +20,7 @@ export const fetchPage = async (slug: string, preview: boolean = false) => {
 
   const url = `/api/pages${stringifiedQuery}`
   const data = await fetchCms(url)
+
   const page = data.docs[0]
 
   return page
