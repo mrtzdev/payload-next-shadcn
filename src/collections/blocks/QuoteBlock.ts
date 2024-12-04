@@ -11,7 +11,7 @@ export const QuoteBlock: Block = {
     },
     {
       name: 'quoteText',
-      type: 'text',
+      type: 'textarea',
     },
   ],
 }

@@ -12,16 +12,17 @@ naming better: HeroBlock
 
 */
 
-import React, { Fragment } from "react";
-import { Page } from "@/payload-types";
-import Hero from "./hero";
-import Cta from "./cta";
-import Faq from "./faq";
-import Features from "./features";
-import GridCards from "./grid-cards";
-import Logos from "./logos";
+import React, { Fragment } from 'react'
+import { Page } from '@/payload-types'
+import Hero from './hero'
+import Cta from './cta'
+import Faq from './faq'
+import Features from './features'
+import GridCards from './grid-cards'
+import Logos from './logos'
+import Quote from './quote'
 
-const Blocks = ({ blocks }: { blocks: Page["layout"] }) => {
+const Blocks = ({ blocks }: { blocks: Page['layout'] }) => {
   const blockComponents: any = {
     Hero: Hero,
     Cta: Cta,
@@ -29,30 +30,31 @@ const Blocks = ({ blocks }: { blocks: Page["layout"] }) => {
     Features: Features,
     GridCards: GridCards,
     Logos: Logos,
-  };
+    Quote: Quote,
+  }
 
-  const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0;
+  const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
   if (hasBlocks) {
     return (
       <Fragment>
         {blocks.map((block) => {
-          const { blockType } = block;
+          const { blockType } = block
           if (blockType) {
-            const Block = blockComponents[blockType];
+            const Block = blockComponents[blockType]
             if (Block) {
-              return <Block {...block} key={block.id} />;
+              return <Block {...block} key={block.id} />
             } else {
-              console.log("Block type not supported");
+              console.log('Block type not supported')
             }
           }
-          return null;
+          return null
         })}
       </Fragment>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
-export default Blocks;
+export default Blocks
