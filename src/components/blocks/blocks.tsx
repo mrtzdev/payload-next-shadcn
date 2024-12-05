@@ -21,6 +21,7 @@ import Features from './features'
 import GridCards from './grid-cards'
 import Logos from './logos'
 import Quote from './quote'
+import RichTextBlock from './rich-text'
 
 const Blocks = ({ blocks }: { blocks: Page['layout'] }) => {
   const blockComponents: any = {
@@ -31,6 +32,7 @@ const Blocks = ({ blocks }: { blocks: Page['layout'] }) => {
     GridCards: GridCards,
     Logos: Logos,
     Quote: Quote,
+    RichText: RichTextBlock,
   }
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0

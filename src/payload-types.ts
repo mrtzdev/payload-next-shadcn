@@ -144,7 +144,7 @@ export interface Page {
   pageTitle: string;
   slug: string;
   layout?:
-    | (HeroBlock | CalltoActionBlock | FaqBlock | FeaturesBlock | GridCardsBlock | QuoteBlock | LogosBlock)[]
+    | (HeroBlock | CalltoActionBlock | RichText | FaqBlock | FeaturesBlock | GridCardsBlock | QuoteBlock | LogosBlock)[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -184,6 +184,30 @@ export interface CalltoActionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'Cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichText".
+ */
+export interface RichText {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'RichText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -448,6 +472,13 @@ export interface PagesSelect<T extends boolean = true> {
                     secondaryLabel?: T;
                     secondaryLink?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        RichText?:
+          | T
+          | {
+              richText?: T;
               id?: T;
               blockName?: T;
             };

@@ -7,6 +7,7 @@ import { FaqBlock } from './blocks/FaqBlock'
 import { FeaturesBlock } from './blocks/FeaturesBlock'
 import { GridCardsBlock } from './blocks/GridCardsBlock'
 import { LogosBlock } from './blocks/LogosBlock'
+import { RichText } from './blocks/RichText'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -85,6 +86,7 @@ export const Pages: CollectionConfig = {
         // required
         HeroBlock,
         CtaBlock,
+        RichText,
         FaqBlock,
         FeaturesBlock,
         GridCardsBlock,

@@ -1,19 +1,16 @@
-import { RichText } from "@/payload-types";
-import React, { Fragment } from "react";
+import React from 'react'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 
-export default function RichTextBlock(props: RichText) {
-  const { richTextField, richTextHeading } = props;
+export default function RichTextBlock(props: any) {
+  const { richText } = props
+  console.log(richText)
   return (
     <>
-      <section className="py-10">
-        <div className="container mx-auto px-4 max-w-screen-lg">
-          {richTextHeading && (
-            <h3 className="mb-3 max-w-3xl text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
-              {richTextHeading}
-            </h3>
-          )}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-screen-md rich-text-block">
+          <RichText data={richText} />
         </div>
       </section>
     </>
-  );
+  )
 }

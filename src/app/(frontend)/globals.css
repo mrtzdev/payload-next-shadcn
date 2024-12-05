@@ -76,3 +76,37 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.rich-text-block h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rich-text-block h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rich-text-block h4 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.rich-text-block h5 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rich-text-block h6 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rich-text-block ul.list-bullet {
+  list-style: initial;
+  padding-left: 15px;
+}
