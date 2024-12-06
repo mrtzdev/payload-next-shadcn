@@ -250,7 +250,7 @@ export default async function HeaderPage() {
                                                       className={cn(
                                                         'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                                       )}
-                                                      href={`/pages/${submenuItem?.link?.value.slug}`}
+                                                      href={`/${submenuItem?.link?.value.slug}`}
                                                     >
                                                       {typeof submenuItem?.subenuIcon ===
                                                         'object' && (
@@ -300,13 +300,17 @@ export default async function HeaderPage() {
                   <div className="border-t pt-4">
                     <div className="mt-2 flex flex-col gap-3">
                       {primaryButtonLabel && (
-                        <Button asChild>
-                          <Link href={`${primaryButtonLink}`}>{primaryButtonLabel}</Link>
-                        </Button>
+                        <SheetClose asChild>
+                          <Button asChild>
+                            <Link href={`${primaryButtonLink}`}>{primaryButtonLabel}</Link>
+                          </Button>
+                        </SheetClose>
                       )}
-                      <Button variant={'outline'} asChild>
-                        <Link href={`${secondaryButtonLink}`}>{secondaryButtonLabel}</Link>
-                      </Button>
+                      <SheetClose asChild>
+                        <Button variant={'outline'} asChild>
+                          <Link href={`${secondaryButtonLink}`}>{secondaryButtonLabel}</Link>
+                        </Button>
+                      </SheetClose>
                     </div>
                   </div>
                 </SheetContent>

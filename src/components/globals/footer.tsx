@@ -1,10 +1,9 @@
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import Image from "next/image";
-import { Fragment } from "react";
-
-import { fetchFooter } from "@/lib/payload/fetchGlobals";
-import { Footer } from "@/payload-types";
+import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Fragment } from 'react'
+import { fetchFooter } from '@/lib/payload/fetchGlobals'
+import { Footer } from '@/payload-types'
 
 /// todo add link and text footer
 
@@ -42,20 +41,20 @@ import { Footer } from "@/payload-types";
 ];*/
 
 export default async function FooterPage() {
-  const imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_SERVER_URL}`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_SERVER_URL}`
 
-  let data: Footer | null = null;
+  let data: Footer | null = null
   try {
-    data = await fetchFooter();
+    data = await fetchFooter()
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 
   if (!data) {
-    return <></>;
+    return <></>
   }
 
-  const { logo, navItemsFooter, copyrightNotice } = data;
+  const { logo, navItemsFooter, copyrightNotice } = data
 
   return (
     <>
@@ -65,11 +64,9 @@ export default async function FooterPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {navItemsFooter?.map((navMenuItem) => (
               <div key={navMenuItem.id}>
-                {typeof navMenuItem?.link?.value === "object" ? (
+                {typeof navMenuItem?.link?.value === 'object' ? (
                   <h3 className="mb-4 font-bold">
-                    <Link href={`/pages/${navMenuItem?.link?.value.slug}`}>
-                      {navMenuItem.label}
-                    </Link>
+                    <Link href={`/${navMenuItem?.link?.value.slug}`}>{navMenuItem.label}</Link>
                   </h3>
                 ) : (
                   <h3 className="mb-4 font-bold">{navMenuItem.label}</h3>
@@ -79,14 +76,9 @@ export default async function FooterPage() {
                   <Fragment key={submenuItem.id}>
                     <ul className="space-y-4 text-muted-foreground">
                       {submenuItem?.submenufooter?.map((submenuItem) => (
-                        <li
-                          key={submenuItem.id}
-                          className="font-medium hover:text-primary"
-                        >
-                          {typeof submenuItem?.link?.value === "object" && (
-                            <Link
-                              href={`/pages/${submenuItem?.link?.value.slug}`}
-                            >
+                        <li key={submenuItem.id} className="font-medium hover:text-primary">
+                          {typeof submenuItem?.link?.value === 'object' && (
+                            <Link href={`/${submenuItem?.link?.value.slug}`}>
                               {submenuItem.label}
                             </Link>
                           )}
@@ -100,13 +92,13 @@ export default async function FooterPage() {
           </div>
           <Separator className="my-10" />
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center my-10 ">
-            {typeof logo === "object" && (
+            {typeof logo === 'object' && (
               <>
                 <Image
                   src={imageUrl + logo?.url}
                   width={logo?.width ? logo?.width : 200}
                   height={logo?.height ? logo?.height : 200}
-                  alt={logo?.alt ? logo?.alt : "Logo"}
+                  alt={logo?.alt ? logo?.alt : 'Logo'}
                   className="max-w-32"
                 />
               </>
@@ -116,5 +108,5 @@ export default async function FooterPage() {
         </div>
       </footer>
     </>
-  );
+  )
 }

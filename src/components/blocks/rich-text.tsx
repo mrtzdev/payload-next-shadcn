@@ -3,7 +3,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 
 export default function RichTextBlock(props: any) {
   const { richText } = props
-  console.log(richText)
+
   return (
     <>
       <section className="py-20">
