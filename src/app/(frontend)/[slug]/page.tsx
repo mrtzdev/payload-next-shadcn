@@ -1,12 +1,30 @@
 import { fetchPage } from '@/lib/payload/fetchPage'
+import { fetchPages } from '@/lib/payload/fetchPages'
 import { notFound } from 'next/navigation'
 import Blocks from '@/components/blocks/blocks'
 import type { Metadata } from 'next'
-import { permanentRedirect } from 'next/navigation'
 
-/// todo improve seo: https://payloadcms.com/docs/plugins/seo
+export async function generateStaticParams() {
+  let pages
 
-/// todo move this up and add extra home page ...
+  try {
+    pages = await fetchPages()
+  } catch (error) {
+    console.error(error)
+  }
+
+  const params = pages
+    ?.filter((doc) => {
+      return doc.slug !== 'home'
+    })
+    .map(({ slug }) => {
+      return { slug }
+    })
+
+  //console.log(params)
+
+  return params
+}
 
 type Props = {
   params: Promise<{ slug: string }>

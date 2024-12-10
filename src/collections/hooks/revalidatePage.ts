@@ -17,9 +17,9 @@ export const revalidatePage: CollectionAfterChangeHook = async ({ doc, req }) =>
     }
   } else {
     try {
-      const res = await fetch(
-        `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?path=/${doc.slug}`,
-      )
+      const path = doc.slug === 'home' ? '/' : `/${doc.slug}`
+
+      const res = await fetch(`${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?path=${path}`)
 
       if (res.ok) {
         req.payload.logger.info(`Revalidated path ${doc.slug}`)
