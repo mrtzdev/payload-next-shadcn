@@ -4,7 +4,7 @@ export const revalidatePage: CollectionAfterChangeHook = async ({ doc, req }) =>
   if (doc._status === 'draft') {
     try {
       const res = await fetch(
-        `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?path=/${doc.slug}/preview?secret=${process.env.PAYLOAD_PUBLIC_PREVIEW_SECRET}`,
+        `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate/page?path=/${doc.slug}/preview&secret=${process.env.PAYLOAD_PUBLIC_PREVIEW_SECRET}`,
       )
 
       if (res.ok) {
@@ -19,7 +19,9 @@ export const revalidatePage: CollectionAfterChangeHook = async ({ doc, req }) =>
     try {
       const path = doc.slug === 'home' ? '/' : `/${doc.slug}`
 
-      const res = await fetch(`${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?path=${path}`)
+      const res = await fetch(
+        `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate/page?path=${path}&secret=${process.env.PAYLOAD_PUBLIC_PREVIEW_SECRET}`,
+      )
 
       if (res.ok) {
         req.payload.logger.info(`Revalidated path ${doc.slug}`)

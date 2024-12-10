@@ -1,8 +1,51 @@
-# blank
+# Payload next shadcn/ui template
 
-blank
+Payload Docs: [https://payloadcms.com/docs/getting-started/what-is-payload](https://payloadcms.com/docs/getting-started/what-is-payload).
 
-## Attributes
+Core features:
 
-- **Database**: mongodb
-- **Storage Adapter**: localDisk
+- [Pre-configured Payload Config](#how-it-works)
+- Pages Collection with Layout Blocks
+- Layout Blocks made with shadcn/ui
+- [Layout Builder](#layout-builder)
+- [Draft Preview](#draft-preview)
+- [Live Preview](#live-preview)
+- Globals: Header and Footer
+- Navigation Menus: Header, Footer, Mobile
+- [Website](#website)
+
+## Setup
+
+Fork this repo to your namespace and clone it to your local machine.
+
+Clone:
+
+```
+git clone https://github.com/<YOUR NAME>/payload-next-shadcn.git
+```
+
+cd my-project
+
+install dependencies:
+
+```
+npm install
+```
+
+Setup a compatible database (MongoDB or Postgres).
+
+When the database is created, add the access data to the env file of the project:
+
+DATABASE_URI=
+
+run the app in dev mode
+
+```
+npm run dev
+```
+
+Open localhost:3000 in your browser: http://localhost:3000/
+
+Now go to: http://localhost:3000/admin
+
+Create the first Admin User and login.

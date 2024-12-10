@@ -2,7 +2,9 @@ import type { GlobalAfterChangeHook } from 'payload'
 
 export const revalidateLayout: GlobalAfterChangeHook = async ({ doc, req }) => {
   try {
-    const res = await fetch(`${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate/layout`)
+    const res = await fetch(
+      `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate/layout&secret=${process.env.PAYLOAD_PUBLIC_PREVIEW_SECRET}`,
+    )
 
     if (res.ok) {
       req.payload.logger.info(`Revalidated path /api/revalidate/layout`)
