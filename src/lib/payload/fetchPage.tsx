@@ -1,8 +1,6 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-/// add not found
-
 export const fetchPage = async (slug: string, preview: boolean = false) => {
   const query = {
     slug: {
@@ -13,7 +11,6 @@ export const fetchPage = async (slug: string, preview: boolean = false) => {
   /// payload local
   const payload = await getPayload({ config })
 
-  /// error handline
   const pages = await payload.find({
     collection: 'pages',
     draft: preview,

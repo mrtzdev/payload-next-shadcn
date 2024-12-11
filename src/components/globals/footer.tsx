@@ -5,41 +5,6 @@ import { Fragment } from 'react'
 import { fetchFooter } from '@/lib/payload/fetchGlobals'
 import { Footer } from '@/payload-types'
 
-/// todo add link and text footer
-
-/*const sections = [
-  {
-    title: "Product",
-    links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
-      { name: "Integrations", href: "#" },
-      { name: "Pricing", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Contact", href: "#" },
-      { name: "Privacy", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-    ],
-  },
-];*/
-
 export default async function FooterPage() {
   const imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_SERVER_URL}`
 
