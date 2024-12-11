@@ -4,15 +4,15 @@ Payload Docs: [https://payloadcms.com/docs/getting-started/what-is-payload](http
 
 Core features:
 
-- [Pre-configured Payload Config](#how-it-works)
-- Pages Collection with Layout Blocks
-- Layout Blocks made with shadcn/ui
-- [Layout Builder](#layout-builder)
-- [Draft Preview](#draft-preview)
-- [Live Preview](#live-preview)
+- [Pre-configured Payload Config](#setup)
+- [Pages Collection with Layout Blocks](#pages)
+- [Layout Blocks made with shadcn/ui](#layout-block)
+- [Media Coolection](#media)
+- Draft Preview
+- Live Preview
 - Globals: Header and Footer
 - Navigation Menus: Header, Footer, Mobile
-- [Website](#website)
+- [Customization](#customization)
 
 ## Setup
 
@@ -26,7 +26,7 @@ git clone https://github.com/<YOUR NAME>/payload-next-shadcn.git
 
 cd my-project
 
-install dependencies:
+install dependencies:‚
 
 ```
 npm install
