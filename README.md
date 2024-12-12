@@ -63,9 +63,14 @@ Create the first Admin User and login.
 
 ## Pages Collection
 
-All pages are layout builder enabled so you can generate unique layouts for each page using layout-building blocks, see Layout Builder for more details. Pages are also draft-enabled so you can preview them before publishing them to your website.
+All pages are layout builder enabled so you can generate unique layouts for each page using layout-building blocks, see Layout Blocks for more details. Pages are also draft-enabled so you can live preview them before publishing them to your website.
 
 Config Pages: [/src/collections/Pages.ts](https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/collections/Pages.ts)
+
+**Page Slug:** The Slug Field is used for the dynamic routes in src/app/(frontend)/[slug] ( Next.js App router frontend ).
+The slug field is required and has to be unique ( Payload CMS Backend > Page ). A simple hook function generates a valid slug on save. For example: My Page Title saved as my-page-title.
+
+**Home Page:** Use the slug "home" for the start page of your website / .
 
 ## Layout Blocks
 
