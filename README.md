@@ -1,4 +1,4 @@
-# Payload Next shadcn/ui Template
+# Payload Next Shadcn/ui Template
 
 This template includes a beautifully designed, production-ready front-end built with the [Next.js App Router](https://nextjs.org), served right alongside your Payload app in a instance.
 
@@ -8,7 +8,7 @@ Payload Docs: [https://payloadcms.com/docs/getting-started/what-is-payload](http
 
 Core features:
 
-- [Pre-configured Payload Config](#setup)
+- Pre-configured Payload Config
 - [Pages Collection with Layout Blocks](#pages-collection)
 - [Layout Blocks made with shadcn/ui](#layout-blocks)
 - [Media Collection](#media-collection)
@@ -84,7 +84,7 @@ The Block Components are made with [TailwindCSS styling](https://tailwindcss.com
 
 ## Media Collection
 
-Config Pages: [/src/collections/Media.ts](https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/collections/Media.ts)
+Config Media: [/src/collections/Media.ts](https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/collections/Media.ts)
 
 Media Docs: [https://payloadcms.com/docs/upload/overview](https://payloadcms.com/docs/upload/overview)
 
