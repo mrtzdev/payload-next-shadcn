@@ -36,7 +36,7 @@ install dependencies:‚
 npm install
 ```
 
-Setup a compatible database (MongoDB or Postgres).
+Setup a MongoDB database. The Payload Config uses mongooseAdapter. If you want to use a different compatible database, change this in the payload.config.ts. Docs: https://payloadcms.com/docs/database/overview
 
 Copy the .env.example and rename it to .env.
 
@@ -47,6 +47,7 @@ DATABASE_URI=
 PAYLOAD_SECRET=YOUR_SECRET_HERE
 
 PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
+\
 PAYLOAD_PUBLIC_SITE_URL=http://localhost:3000
 
 PAYLOAD_PUBLIC_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
