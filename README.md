@@ -1,6 +1,6 @@
 # Payload Next Shadcn/ui Template
 
-This template includes a beautifully designed, production-ready front-end built with the [Next.js App Router](https://nextjs.org), served right alongside your Payload app in a instance.
+This template includes a beautifully designed, production-ready front-end built with the [Next.js App Router](https://nextjs.org/docs/app/building-your-application/routing), served right alongside your Payload app in a instance.
 
 Payload Docs: [https://payloadcms.com/docs/getting-started/what-is-payload](https://payloadcms.com/docs/getting-started/what-is-payload).
 
@@ -43,7 +43,12 @@ Copy the .env.example and rename it to .env.
 When the database is created, add the access data to the .env file of the project:
 
 DATABASE_URI=
+
 PAYLOAD_SECRET=YOUR_SECRET_HERE
+
+PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
+PAYLOAD_PUBLIC_SITE_URL=http://localhost:3000
+
 PAYLOAD_PUBLIC_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
 NEXT_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
 
