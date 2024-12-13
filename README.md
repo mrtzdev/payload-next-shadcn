@@ -30,7 +30,7 @@ git clone https://github.com/<YOUR NAME>/payload-next-shadcn.git
 
 cd my-project
 
-install dependencies:‚
+install dependencies:
 
 ```
 npm install
@@ -47,15 +47,13 @@ DATABASE_URI=
 PAYLOAD_SECRET=YOUR_SECRET_HERE
 
 PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
-\
+
 PAYLOAD_PUBLIC_SITE_URL=http://localhost:3000
 
 PAYLOAD_PUBLIC_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
 NEXT_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
-\
 
 PAYLOAD_PUBLIC_PREVIEW_SECRET and NEXT_PREVIEW_SECRET must have the same value !
-\
 
 run the app in dev mode
 
@@ -116,7 +114,7 @@ New layout blocks can easily be added:
 1. Add a file to /src/collections/blocks ( for Payload Admin Backend ) and add the fields.
    See Payload Docs: [https://payloadcms.com/docs/fields/overview](https://payloadcms.com/docs/fields/overview)
 2. Import it to Pages.ts and add it to CollectionConfig "layout" blocks
-3. Create a new file for your Block: /src/components/blocks and add your component code ( for next.js frontend )
+3. Create a new file for your Block: /src/components/blocks and add your component codefor next.js frontend
 4. Import it to /src/components/blocks/blocks.tsx
 
 Now you can use your new block for the page layouts.
