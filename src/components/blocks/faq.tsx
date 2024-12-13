@@ -13,9 +13,11 @@ export default function Faq(props: FaqBlock) {
     <>
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-screen-md">
-          <h3 className="mb-10 text-pretty text-2xl font-bold lg:text-4xl text-center">
-            {faqHeading}
-          </h3>
+          {faqHeading && (
+            <h3 className="mb-10 text-pretty text-2xl font-bold lg:text-4xl text-center">
+              {faqHeading}
+            </h3>
+          )}
           <p className="mb-10 text-pretty"> {faqText}</p>
           {faqs?.map((faq, index) => (
             <Accordion key={index} type="single" collapsible>
