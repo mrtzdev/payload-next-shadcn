@@ -18,7 +18,9 @@ export default function Features(props: FeaturesBlock) {
               </h2>
             )}
 
-            {featuresText && <p className="mb-10 text-pretty"> {featuresText}</p>}
+            {featuresText && (
+              <p className="mb-10 text-pretty text-center lg:mb-6"> {featuresText}</p>
+            )}
           </div>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {features?.map((reason) => (

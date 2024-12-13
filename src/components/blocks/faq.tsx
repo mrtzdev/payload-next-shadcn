@@ -18,7 +18,8 @@ export default function Faq(props: FaqBlock) {
               {faqHeading}
             </h3>
           )}
-          <p className="mb-10 text-pretty"> {faqText}</p>
+
+          {faqText && <p className="mb-10 text-pretty text-center lg:mb-6"> {faqText}</p>}
           {faqs?.map((faq, index) => (
             <Accordion key={index} type="single" collapsible>
               <AccordionItem value={`item-${index}`}>
