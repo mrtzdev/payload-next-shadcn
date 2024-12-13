@@ -38,7 +38,7 @@ npm install
 
 Setup a MongoDB database. The Payload Config uses mongooseAdapter. If you want to use a different compatible database, change this in the payload.config.ts. Docs: https://payloadcms.com/docs/database/overview
 
-Copy the .env.example and rename it to .env.
+Copy the .env.example and rename it to .env
 
 When the database is created, add the access data to the .env file of the project:
 
@@ -52,8 +52,10 @@ PAYLOAD_PUBLIC_SITE_URL=http://localhost:3000
 
 PAYLOAD_PUBLIC_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
 NEXT_PREVIEW_SECRET=YOUR_PREVIEW_SECRET_HERE
+\
 
 PAYLOAD_PUBLIC_PREVIEW_SECRET and NEXT_PREVIEW_SECRET must have the same value !
+\
 
 run the app in dev mode
 
@@ -74,9 +76,9 @@ All pages are layout builder enabled so you can generate unique layouts for each
 Config Pages: [/src/collections/Pages.ts](https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/collections/Pages.ts)
 
 **Page Slug:** The Slug Field is used for the dynamic routes in src/app/(frontend)/[slug] ( Next.js App router frontend ).
-The slug field is required and has to be unique ( Payload CMS Backend > Page ). A simple hook function generates a valid slug on save. For example: My Page Title saved as my-page-title.
+The slug field is required and has to be unique ( Payload CMS Backend > Page ). A simple hook function generates a valid slug on save. For example: "My Page Title" saved as "my-page-title".
 
-**Home Page:** Use the slug "home" for the start page of your website / .
+**Home Page:** Use the slug "home" for the start page of your website.
 
 ## Layout Blocks
 
@@ -103,7 +105,7 @@ Media Docs: [https://payloadcms.com/docs/upload/overview](https://payloadcms.com
 
 ### Styles
 
-You can use css variables for theming: [global.css](<https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/app/(frontend)/globals.css>)
+You can use css variables for theming: [global.css](<https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/app/(frontend)/globals.css>) ( ( src/app/(frontend)/globals.css )
 
 shadcn/ui themes: [https://ui.shadcn.com/themes](https://ui.shadcn.com/themes)
 
@@ -111,9 +113,10 @@ shadcn/ui themes: [https://ui.shadcn.com/themes](https://ui.shadcn.com/themes)
 
 New layout blocks can easily be added:
 
-- Add a file to /src/collections/blocks ( for Payload Admin Backend ) and add the fields. See Payload Docs: [https://payloadcms.com/docs/fields/overview](https://payloadcms.com/docs/fields/overview)
-- Import it to Pages.ts and add it to CollectionConfig to blocks.
-- Create a new file for your Block: /src/components/blocks
-- Import it to /src/components/blocks/blocks.tsx
+1. Add a file to /src/collections/blocks ( for Payload Admin Backend ) and add the fields.
+   See Payload Docs: [https://payloadcms.com/docs/fields/overview](https://payloadcms.com/docs/fields/overview)
+2. Import it to Pages.ts and add it to CollectionConfig "layout" blocks
+3. Create a new file for your Block: /src/components/blocks and add your component code ( for next.js frontend )
+4. Import it to /src/components/blocks/blocks.tsx
 
 Now you can use your new block for the page layouts.

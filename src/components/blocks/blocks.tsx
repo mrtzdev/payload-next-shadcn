@@ -1,15 +1,5 @@
 /*
 Render all blocks components from payload 
-
-https://github.com/choutkamartin/next-payload-monorepo-docker/blob/main/web/components/RenderBlocks/RenderBlocks.tsx
-https://github.com/payloadcms/payload/blob/main/templates/website/src/app/_components/Blocks/index.tsx
-
-https://github.com/payloadcms/payload/blob/main/templates/website/src/app/(pages)/%5Bslug%5D/page.tsx
-
-use payload types here ...
-
-naming better: HeroBlock
-
 */
 
 import React, { Fragment } from 'react'
