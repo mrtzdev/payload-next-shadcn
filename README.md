@@ -103,7 +103,7 @@ Media Docs: [https://payloadcms.com/docs/upload/overview](https://payloadcms.com
 
 ### Styles
 
-You can use css variables for theming: [global.css](<https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/app/(frontend)/globals.css>) ( ( src/app/(frontend)/globals.css )
+You can use css variables for theming: [global.css](<https://github.com/mrtzdev/payload-next-shadcn/blob/main/src/app/(frontend)/globals.css>) ( src/app/(frontend)/globals.css )
 
 shadcn/ui themes: [https://ui.shadcn.com/themes](https://ui.shadcn.com/themes)
 

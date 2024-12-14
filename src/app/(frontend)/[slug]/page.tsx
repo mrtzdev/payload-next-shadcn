@@ -3,14 +3,19 @@ import { fetchPages } from '@/lib/payload/fetchPages'
 import { notFound } from 'next/navigation'
 import Blocks from '@/components/blocks/blocks'
 import type { Metadata } from 'next'
+import type { Page } from '@/payload-types'
 
 export async function generateStaticParams() {
-  let pages
+  let pages: Page[] | undefined = undefined
 
   try {
     pages = await fetchPages()
   } catch (error) {
     console.error(error)
+  }
+
+  if (!pages || pages.length === 0) {
+    return [{ slug: 'not-found' }]
   }
 
   const params = pages
@@ -21,19 +26,16 @@ export async function generateStaticParams() {
       return { slug }
     })
 
-  //console.log(params)
-
   return params
 }
 
 type Props = {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export default async function Page({ params }: Props) {
   const slug = (await params).slug
-  let page
+  let page: Page | undefined = undefined
 
   if (slug === 'home') {
     return notFound()
