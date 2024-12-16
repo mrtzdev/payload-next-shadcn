@@ -46,8 +46,16 @@ export const Pages: CollectionConfig = {
     },
   },
   access: {
-    read: () => {
-      return true
+    read: ({ req: { user } }) => {
+      if (user) {
+        return true
+      }
+
+      return {
+        _status: {
+          equals: 'published',
+        },
+      }
     },
   },
 

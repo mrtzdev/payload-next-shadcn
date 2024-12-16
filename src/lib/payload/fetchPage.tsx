@@ -15,7 +15,7 @@ export const fetchPage = async (slug: string, preview: boolean = false) => {
     collection: 'pages',
     draft: preview,
     limit: 1000,
-    overrideAccess: false,
+    overrideAccess: preview,
     pagination: false,
     where: query,
   })
