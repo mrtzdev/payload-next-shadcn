@@ -31,7 +31,15 @@ export default async function FooterPage() {
               <div key={navMenuItem.id}>
                 {typeof navMenuItem?.link?.value === 'object' ? (
                   <h3 className="mb-4 font-bold">
-                    <Link href={`/${navMenuItem?.link?.value.slug}`}>{navMenuItem.label}</Link>
+                    <Link
+                      href={
+                        navMenuItem.link?.value?.slug !== 'home'
+                          ? `/${navMenuItem.link?.value?.slug} `
+                          : '/'
+                      }
+                    >
+                      {navMenuItem.label}
+                    </Link>
                   </h3>
                 ) : (
                   <h3 className="mb-4 font-bold">{navMenuItem.label}</h3>
@@ -43,7 +51,13 @@ export default async function FooterPage() {
                       {submenuItem?.submenufooter?.map((submenuItem) => (
                         <li key={submenuItem.id} className="font-medium hover:text-primary">
                           {typeof submenuItem?.link?.value === 'object' && (
-                            <Link href={`/${submenuItem?.link?.value.slug}`}>
+                            <Link
+                              href={
+                                submenuItem.link?.value?.slug !== 'home'
+                                  ? `/${submenuItem.link?.value?.slug} `
+                                  : '/'
+                              }
+                            >
                               {submenuItem.label}
                             </Link>
                           )}

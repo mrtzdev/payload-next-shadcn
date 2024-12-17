@@ -122,7 +122,11 @@ export default async function HeaderPage() {
                                             className={cn(
                                               'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                             )}
-                                            href={`/${submenuItem?.link?.value.slug}`}
+                                            href={
+                                              submenuItem.link?.value?.slug !== 'home'
+                                                ? `/${submenuItem.link?.value?.slug} `
+                                                : '/'
+                                            }
                                           >
                                             {typeof submenuItem?.subenuIcon === 'object' && (
                                               <>
@@ -250,7 +254,11 @@ export default async function HeaderPage() {
                                                       className={cn(
                                                         'flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                                       )}
-                                                      href={`/${submenuItem?.link?.value.slug}`}
+                                                      href={
+                                                        submenuItem.link?.value?.slug !== 'home'
+                                                          ? `/${submenuItem.link?.value?.slug} `
+                                                          : '/'
+                                                      }
                                                     >
                                                       {typeof submenuItem?.subenuIcon ===
                                                         'object' && (
