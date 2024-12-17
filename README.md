@@ -91,6 +91,8 @@ This template comes pre-configured with the following layout blocks:
 - Quote
 - Rich Text
 
+Layout Blocks: [/src/components/blocks](https://github.com/mrtzdev/payload-next-shadcn/tree/main/src/components/blocks)
+
 The Block Components are made with [TailwindCSS styling](https://tailwindcss.com/) and [shadcn/ui components](https://ui.shadcn.com/)
 
 ## Media Collection
@@ -114,7 +116,7 @@ New layout blocks can easily be added:
 1. Add a file to /src/collections/blocks ( for Payload Admin Backend ) and add the fields.
    See Payload Docs: [https://payloadcms.com/docs/fields/overview](https://payloadcms.com/docs/fields/overview)
 2. Import it to Pages.ts and add it to CollectionConfig "layout" blocks
-3. Create a new file for your Block: /src/components/blocks and add your component codefor next.js frontend
+3. Create a new file for your Block: /src/components/blocks and add your component code for next.js frontend
 4. Import it to /src/components/blocks/blocks.tsx
 
 Now you can use your new block for the page layouts.
