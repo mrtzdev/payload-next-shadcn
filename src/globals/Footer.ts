@@ -2,8 +2,6 @@ import type { GlobalConfig, Block } from 'payload'
 
 import { revalidateLayout } from './hooks/revalidateLayout'
 
-/// Todo add revalidate function here
-
 /// Menu Block
 const MenuBlockFooter: Block = {
   slug: 'submenublockfooter', // required
